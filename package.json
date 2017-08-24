@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/rodrijuarez/mostly-adequate-guide-to-fp-snippets#readme",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "chai": "^4.1.1",
+    "lodash": "^4.17.4",
+    "ramda": "^0.24.1"
   }
 }
