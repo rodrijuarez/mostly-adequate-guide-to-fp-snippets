@@ -1,0 +1,22 @@
+{
+  "name": "mostly-adequate-guide-to-fp-snippets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "flocks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrijuarez/mostly-adequate-guide-to-fp-snippets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrijuarez/mostly-adequate-guide-to-fp-snippets/issues"
+  },
+  "homepage": "https://github.com/rodrijuarez/mostly-adequate-guide-to-fp-snippets#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
