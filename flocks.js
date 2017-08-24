@@ -1,12 +1,12 @@
-const cojoin = (flockX, flockY) => flockX + flockY;
+const add = (x, y) => x + y;
 
-const breed = (flockX, flockY) => flockX * flockY;
+const multiply = (x, y) => x * y;
 
 const flockA = 4,
   flockB = 2,
   flockC = 0;
 
-const result = cojoin(breed(flockB, cojoin(flockA, flockC)), breed(flockA, flockB));
+const result = multiply(flockB, add(flockA, flockA));
 
 console.log(result);
 
