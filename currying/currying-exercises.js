@@ -25,8 +25,6 @@ var sentences = _.map(words);
 
 var filterQs = _.filter(_.test(/q/i));
 
-console.log('filterQs', filterQs(['quick', 'camels', 'quarry', 'over', 'quails']));
-
 // Exercise 3
 //==============
 // Use the helper function _keepHighest to refactor max to not reference any
@@ -38,15 +36,7 @@ var _keepHighest = function(x, y) {
 };
 
 // REFACTOR THIS ONE:
-var max = function(xs) {
-  return _.reduce(
-    function(acc, x) {
-      return _keepHighest(acc, x);
-    },
-    -Infinity,
-    xs
-  );
-};
+var max = _.reduce(_keepHighest, -Infinity);
 
 // Bonus 1:
 // ============
@@ -63,5 +53,6 @@ var take = undefined;
 module.exports = {
   words,
   sentences,
-  filterQs
+  filterQs,
+  max
 };
