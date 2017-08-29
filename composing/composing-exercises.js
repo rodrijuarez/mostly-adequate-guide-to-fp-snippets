@@ -67,7 +67,7 @@ var averageDollarValue = _.compose(_average, _.map(_.prop('dollar_value')));
 
 var _underscore = _.replace(/\W+/g, '_'); //<-- leave this alone and use to sanitize
 
-var sanitizeNames = undefined;
+var sanitizeNames = _.map(_.compose(_underscore, _.toLower, _.prop('name')));
 
 // Bonus 1:
 // ============
@@ -98,5 +98,6 @@ module.exports = {
   isLastInStock,
   CARS,
   nameOfFirstCar,
-  averageDollarValue
+  averageDollarValue,
+  sanitizeNames
 };
