@@ -44,15 +44,13 @@ var CARS = [
 // Exercise 1:
 // ============
 // Use _.compose() to rewrite the function below. Hint: _.prop() is curried.
-var isLastInStock = function(cars) {
-  var last_car = _.last(cars);
-  return _.prop('in_stock', last_car);
-};
+
+var isLastInStock = _.compose(_.prop('in_stock'), _.last);
 
 // Exercise 2:
 // ============
 // Use _.compose(), _.prop() and _.head() to retrieve the name of the first car.
-var nameOfFirstCar = undefined;
+var nameOfFirstCar = _.compose(_.prop('name'), _.head);
 
 // Exercise 3:
 // ============
@@ -99,4 +97,10 @@ var fastestCar = function(cars) {
   }, cars);
   var fastest = _.last(sorted);
   return fastest.name + ' is the fastest';
+};
+
+module.exports = {
+  isLastInStock,
+  CARS,
+  nameOfFirstCar
 };
