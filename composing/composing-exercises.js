@@ -59,12 +59,7 @@ var _average = function(xs) {
   return _.reduce(_.add, 0, xs) / xs.length;
 }; // <- leave be
 
-var averageDollarValue = function(cars) {
-  var dollar_values = _.map(function(c) {
-    return c.dollar_value;
-  }, cars);
-  return _average(dollar_values);
-};
+var averageDollarValue = _.compose(_average, _.map(_.prop('dollar_value')));
 
 // Exercise 4:
 // ============
@@ -102,5 +97,6 @@ var fastestCar = function(cars) {
 module.exports = {
   isLastInStock,
   CARS,
-  nameOfFirstCar
+  nameOfFirstCar,
+  averageDollarValue
 };
