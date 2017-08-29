@@ -10,5 +10,29 @@ require(['ramda', 'jquery'], function(_, $) {
     console.log(tag, x);
     return x;
   });
-  // app goes here
+
+  var Impure = {
+    getJSON: _.curry((callback, url) => $.getJSON(url, callback)),
+
+    setHtml: _.curry((sel, html) => $(sel).html(html))
+  };
+
+  var url = function(term) {
+    return 'https://api.flickr.com/services/feeds/photos_public.gne?tags=' + term + '&format=json&jsoncallback=?';
+  };
+
+  var mediaUrl = _.compose(_.prop('m'), _.prop('media'));
+
+  var srcs = _.compose(trace('result'), _.map(mediaUrl), _.prop('items'));
+
+  var img = src =>
+    $(`<img/>`, {
+      src
+    });
+
+  var renderImages = _.compose(Impure.setHtml('body'), _.map(img), srcs);
+
+  var app = _.compose(Impure.getJSON(renderImages), url);
+
+  app('books');
 });
