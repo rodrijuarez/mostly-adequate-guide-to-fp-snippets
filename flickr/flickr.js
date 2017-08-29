@@ -23,14 +23,13 @@ require(['ramda', 'jquery'], function(_, $) {
 
   var mediaUrl = _.compose(_.prop('m'), _.prop('media'));
 
-  var srcs = _.compose(trace('result'), _.map(mediaUrl), _.prop('items'));
+  var img = src => $(`<img/>`, { src });
 
-  var img = src =>
-    $(`<img/>`, {
-      src
-    });
+  var image = _.compose(img, mediaUrl);
 
-  var renderImages = _.compose(Impure.setHtml('body'), _.map(img), srcs);
+  var images = _.compose(_.map(image), _.prop('items'));
+
+  var renderImages = _.compose(Impure.setHtml('body'), images);
 
   var app = _.compose(Impure.getJSON(renderImages), url);
 
