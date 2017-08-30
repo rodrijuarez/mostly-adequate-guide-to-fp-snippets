@@ -1,9 +1,17 @@
-var Container = function(x) {
+var _ = require('ramda');
+
+var Maybe = function(x) {
   this.__value = x;
 };
 
-Container.of = function(x) {
-  return new Container(x);
+Maybe.of = function(x) {
+  return new Maybe(x);
 };
 
-const container = Container.of(3);
+Maybe.prototype.isNothing = function() {
+  return this.__value === null || this.__value === undefined;
+};
+
+Maybe.prototype.map = function(f) {
+  return this.isNothing() ? Maybe.of(null) : Maybe.of(f(this.__value));
+};
