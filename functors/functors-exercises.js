@@ -42,17 +42,15 @@ var ex4 = _.compose(_.map(parseInt), Maybe.of);
 
 // getPost :: Int -> Future({id: Int, title: String})
 var getPost = function(i) {
-  return new task(function(rej, res) {
+  return new Task(function(rej, res) {
     setTimeout(function() {
-      res({
-        id: i,
-        title: 'Love them futures'
-      });
+      res({ id: i, title: 'Love them futures' });
     }, 300);
   });
 };
 
-var ex5 = undefined;
+var upperTitle = _.compose(toUpperCase, _.prop('title'));
+var ex5 = _.compose(_.map(upperTitle), getPost);
 
 // Exercise 6
 // ==========
@@ -65,7 +63,7 @@ var checkActive = function(user) {
   return user.active ? Right.of(user) : Left.of('Your account is not active');
 };
 
-var ex6 = undefined;
+var ex6 = _.compose(_.map(showWelcome), checkActive);
 
 // Exercise 7
 // ==========
