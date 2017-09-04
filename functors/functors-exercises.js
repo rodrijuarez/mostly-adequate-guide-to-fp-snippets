@@ -1,5 +1,5 @@
-require('../../support');
-var Task = require('data.task');
+require('../support');
+var { task } = require('folktale/concurrency/task');
 var _ = require('ramda');
 
 // Exercise 1
@@ -7,14 +7,14 @@ var _ = require('ramda');
 // Use _.add(x,y) and _.map(f,x) to make a function that increments a value
 // inside a functor.
 
-var ex1 = undefined;
+var ex1 = _.map(_.add(1));
 
 // Exercise 2
 // ==========
 // Use _.head to get the first element of the list.
 var xs = Identity.of(['do', 'ray', 'me', 'fa', 'so', 'la', 'ti', 'do']);
 
-var ex2 = undefined;
+var ex2 = _.map(_.head);
 
 // Exercise 3
 // ==========
@@ -48,7 +48,7 @@ var ex4 = undefined;
 
 // getPost :: Int -> Future({id: Int, title: String})
 var getPost = function(i) {
-  return new Task(function(rej, res) {
+  return new task(function(rej, res) {
     setTimeout(function() {
       res({
         id: i,
@@ -96,3 +96,14 @@ var save = function(x) {
 };
 
 var ex8 = undefined;
+
+module.exports = {
+  ex1,
+  ex2,
+  ex3,
+  ex4,
+  ex5,
+  ex6,
+  ex7,
+  ex8
+};

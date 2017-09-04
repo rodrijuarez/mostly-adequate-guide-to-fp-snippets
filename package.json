@@ -19,6 +19,7 @@
   "dependencies": {
     "accounting": "^0.4.1",
     "chai": "^4.1.1",
+    "folktale": "^2.0.1",
     "lodash": "^4.17.4",
     "ramda": "^0.24.1"
   }
