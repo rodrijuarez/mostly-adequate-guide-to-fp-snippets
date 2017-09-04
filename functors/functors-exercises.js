@@ -71,7 +71,7 @@ var ex6 = _.compose(_.map(showWelcome), checkActive);
 // Right(x) if it is greater than 3 and Left("You need > 3") otherwise.
 
 var ex7 = function(x) {
-  return undefined; // <--- write me. (don't be pointfree)
+  return x.length > 3 ? Right.of(x) : Left.of('You need > 3');
 };
 
 // Exercise 8
