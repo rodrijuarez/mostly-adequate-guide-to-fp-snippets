@@ -28,7 +28,7 @@ var user = {
   name: 'Albert'
 };
 
-var ex3 = undefined;
+var ex3 = _.compose(_.map(_.head), safeProp('name'));
 
 // Exercise 4
 // ==========
