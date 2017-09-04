@@ -87,7 +87,7 @@ var save = function(x) {
   });
 };
 
-var ex8 = undefined;
+var ex8 = _.compose(either(IO.of, save), ex7);
 
 module.exports = {
   ex1,
