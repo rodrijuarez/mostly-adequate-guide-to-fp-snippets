@@ -35,7 +35,6 @@ var getFile = function() {
 
 var pureLog = function(x) {
   return new IO(function() {
-    console.log(x);
     return 'logged ' + x;
   });
 };
@@ -102,7 +101,7 @@ var validateEmail = function(x) {
 };
 
 //  ex4 :: Email -> Either String (IO String)
-var ex4 = undefined;
+var ex4 = _.compose(_.map(emailBlast), _.map(addToMailingList), validateEmail);
 
 module.exports = {
   ex1,
