@@ -1,3 +1,7 @@
+require('../support');
+var { task } = require('folktale/concurrency/task');
+var _ = require('ramda');
+
 // Exercise 1
 // ==========
 // Use safeProp and map/join or chain to safely get the street name when given
@@ -16,7 +20,7 @@ var user = {
     }
   }
 };
-var ex1 = undefined;
+var ex1 = _.compose(_.chain(safeProp('name')), _.chain(safeProp('street')), safeProp('address'));
 
 // Exercise 2
 // ==========
@@ -43,7 +47,7 @@ var ex2 = undefined;
 // Use getPost() then pass the post's id to getComments().
 //
 var getPost = function(i) {
-  return new Task(function(rej, res) {
+  return new task(function(rej, res) {
     setTimeout(function() {
       res({
         id: i,
@@ -54,7 +58,7 @@ var getPost = function(i) {
 };
 
 var getComments = function(i) {
-  return new Task(function(rej, res) {
+  return new task(function(rej, res) {
     setTimeout(function() {
       res([
         {
@@ -104,5 +108,6 @@ module.exports = {
   ex1,
   ex2,
   ex3,
-  ex4
+  ex4,
+  user
 };
