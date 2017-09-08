@@ -40,7 +40,7 @@ var pureLog = function(x) {
   });
 };
 
-var ex2 = undefined;
+var ex2 = _.compose(_.chain(pureLog), getFile);
 
 // Exercise 3
 // ==========

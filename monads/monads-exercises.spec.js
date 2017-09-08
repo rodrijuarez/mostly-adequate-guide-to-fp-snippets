@@ -9,7 +9,7 @@ describe('Monad Exercises', function() {
   });
 
   it('Exercise 2', function() {
-    assert.equal(E.ex2(undefined).unsafePerformIO(), 'logged monad_exercises.js');
+    assert.equal(E.ex2(undefined).unsafePerformIO(), 'logged monads-exercises.js');
   });
 
   it('Exercise 3', function(done) {
